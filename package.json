@@ -1,0 +1,35 @@
+{
+  "name": "podtest",
+  "version": "1.0.0",
+  "description": "A pod test",
+  "main": "index.js",
+  "scripts": {
+    "test_unit": "node ./node_modules/mocha/bin/mocha test --recursive --require test/helper.js --check-leaks",
+    "test": "npm run test_unit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/txusinho/podtest.git"
+  },
+  "keywords": [
+    "pod",
+    "test",
+    "api",
+    "rest"
+  ],
+  "author": "txus ordorika",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/txusinho/podtest/issues"
+  },
+  "homepage": "https://github.com/txusinho/podtest#readme",
+  "devDependencies": {
+    "chai": "^4.3.6",
+    "chai-as-promised": "^7.1.1",
+    "eslint": "^8.12.0",
+    "eslint-plugin-chai-friendly": "^0.7.2",
+    "mocha": "^9.2.2",
+    "sinon": "^13.0.1",
+    "sinon-chai": "^3.7.0"
+  }
+}
