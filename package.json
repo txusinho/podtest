@@ -4,8 +4,10 @@
   "description": "A pod test",
   "main": "index.js",
   "scripts": {
-    "test_unit": "node ./node_modules/mocha/bin/mocha test --recursive --require test/helper.js --check-leaks",
-    "test": "npm run test_unit"
+    "test_acceptance": "NODE_ENV=production node ./node_modules/mocha/bin/mocha test/acceptance --recursive --require test/helper.js --check-leaks",
+    "test_integration": "node ./node_modules/mocha/bin/mocha test/integration --recursive --require test/helper.js --check-leaks",
+    "test_unit": "node ./node_modules/mocha/bin/mocha test/unit --recursive --require test/helper.js --check-leaks",
+    "test": "npm run test_unit && npm run test_integration && npm run test_acceptance"
   },
   "repository": {
     "type": "git",
@@ -29,7 +31,11 @@
     "eslint": "^8.12.0",
     "eslint-plugin-chai-friendly": "^0.7.2",
     "mocha": "^9.2.2",
+    "nock": "^13.2.4",
     "sinon": "^13.0.1",
     "sinon-chai": "^3.7.0"
+  },
+  "dependencies": {
+    "node-fetch": "^2.1.2"
   }
 }
