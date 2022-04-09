@@ -34,7 +34,6 @@ function ajax(method, endpoint, bodyObj, extraHeaders) {
     if(bodyObj) {
         options.body = JSON.stringify(bodyObj);
     }
-    console.log(options, _createEndpoint(endpoint));
     const body = JSON.stringify(bodyObj);
     return fetch(_createEndpoint(endpoint), options).
     then((response) => {

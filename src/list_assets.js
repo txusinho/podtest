@@ -15,7 +15,6 @@ module.exports = function listAssets(){
         const user = new User(session.user);
         const token = session.token;
         const accountId = user.getMainAccountId();
-        console.log(token);
         return callListAssetsEndpoint(accountId, token);
 
     });
