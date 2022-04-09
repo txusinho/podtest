@@ -3,7 +3,7 @@ const getParams = require("./get_params");
 
 function _createEndpoint(endpoint) {
     const { baseUrl } = getParams();
-    return `${baseUrl}/auth/token`;
+    return `${baseUrl}${endpoint}`;
 }
 
 function getJson(res) {
@@ -16,8 +16,9 @@ function getJson(res) {
     });
 }
 
-module.exports = function post(endpoint, body) {
-    const headers = {"Content-Type": "application/json"};
+module.exports = function post(endpoint, bodyObj, extraHeaders) {
+    const headers = Object.assign({"Content-Type": "application/json; charset=UTF-8"}, extraHeaders);
+    const body = JSON.stringify(bodyObj);
     return fetch(_createEndpoint(endpoint), {
         method: "POST",
         body,
@@ -26,7 +27,7 @@ module.exports = function post(endpoint, body) {
         return Promise.all([response, getJson(response)]).
             then(([response, respData]) => {
                 if (!(response.status >= 200 && response.status < 400)) {
-                    let err = new Error("Unexpected status code: " + res.status + ", Body: " + JSON.stringify(respData));
+                    let err = new Error("Unexpected status code: " + response.status + ", Body: " + JSON.stringify(respData));
 
                     if (respData.hasOwnProperty("error")) {
                         Object.assign(err, respData.error);
