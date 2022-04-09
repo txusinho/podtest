@@ -7,6 +7,7 @@
     },
     "rules": {
         "no-unused-expressions": [2],
+        "no-undef":[2],
         "no-console": [2],
         "quotes": [1, "double"],
         "new-cap": [2],
@@ -18,10 +19,6 @@
         "max-statements": [2, 22],
         "complexity": [2, 8],
         "semi": [2, "always"]
-    },
-    "globals": {
-        "sinon": true,
-        "assert": true
     },
     "overrides": [
         {
