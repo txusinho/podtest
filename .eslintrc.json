@@ -4,7 +4,6 @@
         "es6": true,
         "mocha": true,
         "jasmine": true
-
     },
     "rules": {
         "no-unused-expressions": [2],
@@ -19,13 +18,17 @@
         "max-statements": [2, 22],
         "complexity": [2, 8],
         "semi": [2, "always"]
-
     },
     "globals": {
         "sinon": true,
         "assert": true
     },
-    "plugins": [
-        "chai-friendly"
+    "overrides": [
+        {
+            "files": ["*.spec.js"],
+            "rules": {
+                "no-unused-expressions": "off"
+            }
+        }
     ]
 }
